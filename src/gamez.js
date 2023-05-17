@@ -56,21 +56,23 @@ class Game {
   	_DEBUG = false;
 	  this.fps = fps;
     this.spriteList = {};
-    try {
-      Setup();
-    } catch(e) {
-      console.error('Could not find a Setup function. Please create a setup function.');
-    }
-    try {
-      setInterval(Update, 1000/this.fps);
-    } catch(e) {
-      console.error('Could not find an Update function. Please create an update function.');
-    }
   }
   setDebug(s){
   	_DEBUG = !!s;
     if(_DEBUG){
     	console.log(`Set debug to ${_DEBUG}`)
+    }
+  }
+  startGame(screen){
+    try {
+      Setup(this, screen);
+    } catch(e) {
+      console.error('Could not find a Setup function. Please create a setup function.');
+    }
+    try {
+      setInterval(Update, 1000/this.fps, this, screen);
+    } catch(e) {
+      console.error('Could not find an Update function. Please create an update function.');
     }
   }
 }
