@@ -52,9 +52,20 @@ function updateMouse(e){
 }
 
 class Game {
-	constructor(){
+	constructor(fps){
   	_DEBUG = false;
+	  this.fps = fps;
     this.spriteList = {};
+    try {
+      Setup();
+    } catch(e) {
+      console.error('Could not find a Setup function. Please create a setup function.');
+    }
+    try {
+      setInterval(Update, 1000/this.fps);
+    } catch(e) {
+      console.error('Could not find an Update function. Please create an update function.');
+    }
   }
   setDebug(s){
   	_DEBUG = !!s;
