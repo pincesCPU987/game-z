@@ -38,13 +38,13 @@ This line creates a new Game instance, required to start the game and also set t
 ```let screen = new Screen(640, 480);```  
 This line creates a new Screen instance, required to create and access sprites in the game. Two parameters are for the width and height of the canvas created.
 
-```async function Setup(game, screen){```   
+```async function Setup(game, screen){```  
 This line creates an async function. Async is required only if you need to use one of several functions returning Promises with ```await```. This funcion uses ```game``` and ```screen``` references to work with sprites.
 
-```function Update(game, screen){```
+```function Update(game, screen){```  
 The update function can be async, but **_the next frame will not wait for it_**. Async is only needed in the Setup function for loading files. This function also uses ```game``` and ```screen``` references to work with sprites.
 
-Now, because you are using ```async``` functions, it may help to add something like this to your code, to accept and report errors:
+Now, because you are using ```async``` functions, it may help to add something like this to your code, to accept and report errors:  
 ```
 window.onunhandledrejection = function(errorEvent) {
   document.body.removeChild(document.querySelector('canvas')); // Remove the canvas to stop rendering.
@@ -56,6 +56,7 @@ window.onunhandledrejection = function(errorEvent) {
   }
 }
 ```
+
 The framework is based on the HTML Canvas element, so removing the canvas to stop rendering of the game is included in this snippet.
 
 ## Making the Game
