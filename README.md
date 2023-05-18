@@ -48,11 +48,11 @@ Now, because you are using ```async``` functions, it may help to add something l
 ```
 window.onunhandledrejection = function(errorEvent) {
   document.body.removeChild(document.querySelector('canvas')); // Remove the canvas to stop rendering.
-	document.body.style.overflow = 'visible';
-	if(_DEBUG){
+  document.body.style.overflow = 'visible';
+  if(_DEBUG){
     document.body.innerHTML = `<div style="margin: 10px;"><h1>🤔</h1><h1>Hmmm...</h1><p>There's an error in your code.</p><p>Here it is:</p><p>${errorEvent.reason.stack.split('\n').join('<br>').split(' ').join('&nbsp;')}</p></div>`
-	} else {
-  	document.body.innerHTML = `<div style="margin: 10px;"><h1>🤔</h1><h1>Hmmm...</h1><p>Something went wrong.</p></div>`
+  } else {
+    document.body.innerHTML = `<div style="margin: 10px;"><h1>🤔</h1><h1>Hmmm...</h1><p>Something went wrong.</p></div>`
   }
 }
 ```
