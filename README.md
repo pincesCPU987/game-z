@@ -23,7 +23,7 @@ async function Setup(game, screen){
   // Your starting setup code goes here...
 }
 
-function Update(game, screen){
+async function Update(game, screen){
   // This is executed once per frame.
   // Your repeating update code goes here...
 }
@@ -41,8 +41,8 @@ This line creates a new Screen instance, required to create and access sprites i
 ```async function Setup(game, screen){```  
 This line creates an async function. Async is required only if you need to use one of several functions returning Promises with ```await```. This funcion uses ```game``` and ```screen``` references to work with sprites.
 
-```function Update(game, screen){```  
-The update function can be async, but **_the next frame will not wait for it_**. Async is only needed in the Setup function for loading files. This function also uses ```game``` and ```screen``` references to work with sprites.
+```async function Update(game, screen){```  
+The update function is also async. Async is only required in the Setup function for loading files, but can be used to pause the frame. This function also uses ```game``` and ```screen``` references to work with sprites.
 
 Now, because you are using ```async``` functions, it may help to add something like this to your code, to accept and report errors:  
 ```
@@ -75,5 +75,7 @@ To access the sprite, just use ```getSprite()```, like this:
 ```
 let mainSprite = screen.getSprite(<name>);
 ```
-**Note**: You _can_ just repeatedly use ```screen.getSprite```, but assigning it to a variable is _recommended_.  
+**Note**: You _can_ repeatedly use ```screen.getSprite()``` without using a variable, but assigning it to a variable is _recommended_.  
 **Also note**: If GameZ cannot find your sprite, it will throw an error.
+
+## Making the Sprite Do Things
