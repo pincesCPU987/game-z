@@ -70,7 +70,7 @@ class Game {
       console.error('Could not find a Setup function. Please create a setup function.');
     }
     try {
-      setInterval(Update, 1000/this.fps, this, screen);
+      setTimeout(Update, 1000/this.fps, this, screen);
     } catch(e) {
       console.error('Could not find an Update function. Please create an update function.');
     }
