@@ -75,5 +75,5 @@ To access the sprite, just use ```getSprite()```, like this:
 ```
 let mainSprite = screen.getSprite(<name>);
 ```
-**Note**: You _can_ just repeatedly use ```screen.getSprite```, but assigning it to a variable is _recommended_.
+**Note**: You _can_ just repeatedly use ```screen.getSprite```, but assigning it to a variable is _recommended_.  
 **Also note**: If GameZ cannot find your sprite, it will throw an error.
