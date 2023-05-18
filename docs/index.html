@@ -1,6 +1,23 @@
 <title>GameZ Docs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQAgMAAAB4ofd8AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAJUExURf//AP8AAP//ACUfgT4AAAABdFJOUwBA5thmAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+cDHg8jCIvdY4gAAAAwSURBVAjXY2BgYA0NYAABKB0KAgiaFUwHINEMQIhMo8qDJQIYEDRYHRLNGgBCMBoAeP0Ul2t8kdkAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDMtMzBUMTU6MzU6MDcrMDA6MDD/ZNcxAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAzLTMwVDE1OjM1OjA3KzAwOjAwjjlvjQAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMy0zMFQxNTozNTowOCswMDowMC9kPrsAAAAASUVORK5CYII=">
 <body>
+<div class="container">
+  <div class="logo">
+    <center>
+      <h1 class="logotext">
+        <img height="32" width="56" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQAgMAAAB4ofd8AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAJUExURf//AP8AAP//ACUfgT4AAAABdFJOUwBA5thmAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+cDHg8jCIvdY4gAAAAwSURBVAjXY2BgYA0NYAABKB0KAgiaFUwHINEMQIhMo8qDJQIYEDRYHRLNGgBCMBoAeP0Ul2t8kdkAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDMtMzBUMTU6MzU6MDcrMDA6MDD/ZNcxAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAzLTMwVDE1OjM1OjA3KzAwOjAwjjlvjQAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMy0zMFQxNTozNTowOCswMDowMC9kPrsAAAAASUVORK5CYII=">
+        GameZ
+        <img height="32" width="56" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQAgMAAAB4ofd8AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAJUExURf//AP8AAP//ACUfgT4AAAABdFJOUwBA5thmAAAAAWJLR0QAiAUdSAAAAAd0SU1FB+cDHg8jCIvdY4gAAAAwSURBVAjXY2BgYA0NYAABKB0KAgiaFUwHINEMQIhMo8qDJQIYEDRYHRLNGgBCMBoAeP0Ul2t8kdkAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDMtMzBUMTU6MzU6MDcrMDA6MDD/ZNcxAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTAzLTMwVDE1OjM1OjA3KzAwOjAwjjlvjQAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wMy0zMFQxNTozNTowOCswMDowMC9kPrsAAAAASUVORK5CYII=">
+      </h1>
+    </center>
+  </div>
+</div>
+
 <h1>GameZ Docs</h1>
 <hr>
 <h2>Loading GameZ</h2>
@@ -105,27 +122,36 @@ Now, because you are using async functions, it may help to add something like th
 <h2>Making the Sprite Do Things</h2>
 </body>
 <style>
-body {
-  color: #ddeeff;
-  background-color: #001122;
-  white-space: wrap;
+@font-face {
+    font-family: myFirstFont;
+    src: url(https://pincescpu987.github.io/files/Product%20Sans%20Regular.ttf);
 }
 
-hr {
-  height: 1px;
-  background-color: #224466;
-  border: none;
+.logo {
+  transform: rotateX(65deg) scaleY(300%);
 }
-code {
-  border-radius: 7px;
-  white-space: pre;
-  background-color: #464646;
-  color: #fafafa;
-  padding: 3px;
-  margin: 1px;
+
+img {
+  transform: translateY(-3px);
 }
-a {
-  color: #4488cc;
+
+.container {
+  perspective: 400px;
+  perspective-origin: 50% -50%;
+}
+
+.logo, .container {
+  padding: 0;
+  margin: 0;
+}
+
+.logotext {
+  font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+*:not(code){
+  font-family: myFirstFont, sans-serif;
 }
 </style>
 <script>
