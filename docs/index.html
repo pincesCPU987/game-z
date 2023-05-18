@@ -1,0 +1,131 @@
+<body>
+<h1>GameZ Docs</h1>
+<hr>
+<h2>Loading GameZ</h2>
+<hr>
+<p>To load GameZ, use the <code>script</code> tag in your HTML:</p>
+
+<code>&lt;script src="https://pincescpu987.github.io/game-z/main.min.js"&gt;&lt;/script&gt;</code>
+<p>
+  The source code can be found at <a href="https://pincescpu987.github.io/game-z/main.js">https://pincescpu987.github.io/game-z/main.js</a><br/>
+  and the minified version at <a href="https://pincescpu987.github.io/game-z/main.min.js">https://pincescpu987.github.io/game-z/main.min.js</a>.
+</p>
+<hr>
+<h2>Setting Up a New Game</h2>
+<hr>
+<p>GameZ is object-oriented. To start, create new <code>Game</code> and <code>Screen</code> objects, and <code>Setup</code> and <code>Update</code> functions, like this:</p>
+<p>
+  <code>let game = new Game(60);
+let screen = new Screen(640, 360);
+async function Setup(game, screen){
+  // This is executed once before the Update function.
+  // Your starting setup code goes here...
+}
+
+async function Update(game, screen){
+  // This is executed once per frame.
+  // Your repeating update code goes here...
+}
+game.startGame(screen);</code>
+</p>
+<p>Let's break this code down line by line.</p>
+
+<p>
+  <code>let game = new Game(60);</code>
+  <br/>
+  This line creates a new <code>Game</code> instance, required to start the game and also set the debug feature. The one parameter required is the FPS of the game.
+</p>
+
+<p>
+  <code>let screen = new Screen(640, 480);</code>
+  <br/>
+  This line creates a new <code>Screen</code> instance, required to create and access sprites in the game. The two parameters are for the width and height of the canvas created with the screen.
+</p>
+
+<p>
+  <code>async function Setup(game, screen){</code>
+  <br/>
+  This line creates an <code>async</code> function. <code>async</code> is required only if you need to use one of several functions returning <code>Promise</code>s with <code>await</code>. This funcion uses <code>Game</code> and <code>Screen</code> references to work with sprites.
+</p>
+
+<p>
+  <code>async function Update(game, screen){</code>
+  <br/>
+  The update function is also async. Async is only required in the <code>Setup</code> function for loading files, but can be used to pause the frame. This function also uses <code>Game</code> and <code>Screen</code> references to work with sprites.
+</p>
+
+<p>
+Now, because you are using async functions, it may help to add something like this to your code, to accept and report errors:
+</p>
+
+<p>
+  <code>window.onunhandledrejection = function(errorEvent) {
+  document.body.removeChild(document.querySelector('canvas')); // Remove the canvas to stop rendering.
+  document.body.style.overflow = 'visible';
+  if(_DEBUG){
+    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>There's an error in your code.&lt;/p>&lt;p>Here it is:&lt;/p>&lt;p>${errorEvent.reason.stack.split('\n').join('&lt;br>').split(' ').join('&nbsp;')}&lt;/p>&lt;/div>`
+  } else {
+    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>Something went wrong.&lt;/p>&lt;/div>`
+  }
+}</code>
+</p>
+
+<p>
+  This code tells the user something is wrong if debug is off, or tells the developer what is wrong if debug is on.<br/>
+  Also, the code removes the canvas to prevent rendering of a broken game.<br/>
+  The framework is based on the HTML <code>canvas</code> element, so removing the canvas to stop rendering of the game is included in this snippet.<br/>
+  However, you can write your error handling code however you want.
+</p>
+
+<h2>Making a Sprite</h2>
+
+<p>
+  To have motion, graphics, or even images, every game needs a sprite. You can't really have a game without sprites. To create a sprite, use the <code>createSprite()</code> method of <code>Screen</code> instance, with &lt;name> being any string, like this:
+  <br>
+  <code>screen.createSprite(&lt;name>);</code>
+</p>
+
+<p>
+  To access the sprite, just use <code>getSprite()</code>, like this:
+  <code>let mainSprite = screen.getSprite(&lt;name>);</code>
+</p>
+<p>
+  <b>Note</b>: You <i>can</i> repeatedly use <code>screen.getSprite()</code> without using a variable, but assigning it to a variable is <i>recommended</i>.
+  <b>Also note</b>: If GameZ cannot find your sprite, it will throw an error.
+</p>
+<h2>Making the Sprite Do Things</h2>
+</body>
+<style>
+body {
+  color: #ddeeff;
+  background-color: #001122;
+  white-space: wrap;
+}
+
+hr {
+  height: 1px;
+  background-color: #224466;
+  border: none;
+}
+code {
+  border-radius: 7px;
+  white-space: pre;
+  background-color: #464646;
+  color: #fafafa;
+  padding: 3px;
+  margin: 1px;
+}
+a {
+  color: #4488cc;
+}
+</style>
+<script>
+var elems = document.querySelectorAll('code');
+elems.forEach((element) => {
+  if(element.innerHTML.includes('\n')){
+  	element.style.display = 'block';
+  } else {
+  	element.style.display = 'inline-block';
+  }
+});
+</script>
