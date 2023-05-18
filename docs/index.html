@@ -63,7 +63,14 @@ Now, because you are using async functions, it may help to add something like th
   document.body.removeChild(document.querySelector('canvas')); // Remove the canvas to stop rendering.
   document.body.style.overflow = 'visible';
   if(_DEBUG){
-    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>There's an error in your code.&lt;/p>&lt;p>Here it is:&lt;/p>&lt;p>${errorEvent.reason.stack.split('\n').join('&lt;br>').split(' ').join('&nbsp;')}&lt;/p>&lt;/div>`
+    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>
+      &lt;p>There's an error in your code.&lt;/p>&lt;p>Here it is:&lt;/p>
+      &lt;p>${
+        errorEvent.reason.stack
+          .split('\n').join('&lt;br>')
+          .split(' ').join('&nbsp;')
+      }
+      &lt;/p>&lt;/div>`
   } else {
     document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>Something went wrong.&lt;/p>&lt;/div>`
   }
