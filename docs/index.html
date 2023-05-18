@@ -122,45 +122,72 @@ Now, because you are using async functions, it may help to add something like th
 <h2>Making the Sprite Do Things</h2>
 </body>
 <style>
-@font-face {
-    font-family: myFirstFont;
-    src: url(https://pincescpu987.github.io/files/Product%20Sans%20Regular.ttf);
-}
+  @font-face {
+      font-family: myFirstFont;
+      src: url(https://pincescpu987.github.io/files/Product%20Sans%20Regular.ttf);
+  }
+  
+  body {
+    background-color: #001122;
+    color: #ddeeff;
+  }
+  
+  hr{
+    height: 1px;
+    background-color: #214263;
+    border: none;
+  }
+  
+  .logo {
+    transform: rotateX(65deg) scaleY(300%);
+  }
 
-.logo {
-  transform: rotateX(65deg) scaleY(300%);
-}
+  img {
+    transform: translateY(-3px);
+  }
 
-img {
-  transform: translateY(-3px);
-}
+  .container {
+    perspective: 400px;
+    perspective-origin: 50% -50%;
+  }
 
-.container {
-  perspective: 400px;
-  perspective-origin: 50% -50%;
-}
+  .logo, .container {
+    padding: 0;
+    margin: 0;
+  }
 
-.logo, .container {
-  padding: 0;
-  margin: 0;
-}
+  .logotext {
+    font-size: 32px;
+    font-family: 'Press Start 2P', cursive;
+  }
 
-.logotext {
-  font-size: 32px;
-  font-family: 'Press Start 2P', cursive;
-}
-
-*:not(code){
-  font-family: myFirstFont, sans-serif;
-}
+  *:not(code){
+    font-family: myFirstFont, sans-serif;
+  }
+  
+  a {
+    color: #4488cc;
+  }
+  
+  code {
+    background-color: #214263;
+    border-radius: 7px;
+    padding: 3px;
+    margin: 1px;
+  }
+  
+  ::selection {
+    color: #001122;
+    background-color: #4488cc;
+  }
 </style>
 <script>
-var elems = document.querySelectorAll('code');
-elems.forEach((element) => {
-  if(element.innerHTML.includes('\n')){
-  	element.style.display = 'block';
-  } else {
-  	element.style.display = 'inline-block';
-  }
-});
+  var elems = document.querySelectorAll('code');
+  elems.forEach((element) => {
+    if(element.innerHTML.includes('\n')){
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'inline-block';
+    }
+  });
 </script>
