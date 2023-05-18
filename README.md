@@ -36,7 +36,7 @@ Let's break this code down line by line.
 This line creates a new Game instance, required to start the game and also set the debug feature. The one parameter required is the FPS of the game.
 
 ```let screen = new Screen(640, 480);```  
-This line creates a new Screen instance, required to create and access sprites in the game. Two parameters are for the width and height of the canvas created.
+This line creates a new Screen instance, required to create and access sprites in the game. The two parameters are for the width and height of the canvas created with the screen.
 
 ```async function Setup(game, screen){```  
 This line creates an async function. Async is required only if you need to use one of several functions returning Promises with ```await```. This funcion uses ```game``` and ```screen``` references to work with sprites.
@@ -57,6 +57,23 @@ window.onunhandledrejection = function(errorEvent) {
 }
 ```
 
-The framework is based on the HTML Canvas element, so removing the canvas to stop rendering of the game is included in this snippet.
+This code tells the user something is wrong if debug is off, or tells the developer what is wrong if debug is on.  
+Also, the code removes the canvas to prevent rendering of a broken game.  
+The framework is based on the HTML Canvas element, so removing the canvas to stop rendering of the game is included in this snippet.   
+However, you can write your error handling code however you want.
 
-## Making the Game
+***
+
+## Making a Sprite
+
+To have motion, graphics, or even images, every game needs a sprite. You can't really have a game without sprites. To create a sprite, use the ```createSprite()``` method of ```screen``` object, with ```<name>``` being any string, like this:
+```
+screen.createSprite(<name>);
+```
+
+To access the sprite, just use ```getSprite()```, like this:
+```
+let mainSprite = screen.getSprite(<name>);
+```
+**Note**: You _can_ just repeatedly use ```screen.getSprite```, but assigning it to a variable is _recommended_.
+**Also note**: If GameZ cannot find your sprite, it will throw an error.
