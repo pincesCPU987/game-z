@@ -1,3 +1,4 @@
+
 <title>GameZ Docs</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -6,79 +7,79 @@
 
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzx/vAAAAAXNSR0IArs4c6QAAAIFJREFUSEvNVUEOwCAIg/8/2mUHlqVLpTXLnEcpthXEDLJGxLiHMiIZ9txX8fQQ9YASoeIfhJiIrtCpi99H2Cmd1U+J1c1cDn9HWApZc3SCbYefEyp1mmFsh9sI3XdYQpcdvkbIRhQqdLsUBcqTZrVLW8LOqdo87HeRfwuVCEuAeQfyzzwR9//rHgAAAABJRU5ErkJgggAA">
 <body>
-<div class="container">
-  <div class="logo">
-    <center>
-      <h1 class="logotext">
-        <img height="32" width="56" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzx/vAAAAAXNSR0IArs4c6QAAAIFJREFUSEvNVUEOwCAIg/8/2mUHlqVLpTXLnEcpthXEDLJGxLiHMiIZ9txX8fQQ9YASoeIfhJiIrtCpi99H2Cmd1U+J1c1cDn9HWApZc3SCbYefEyp1mmFsh9sI3XdYQpcdvkbIRhQqdLsUBcqTZrVLW8LOqdo87HeRfwuVCEuAeQfyzzwR9//rHgAAAABJRU5ErkJgggAA">
-        GameZ
-        <img height="32" width="56" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzx/vAAAAAXNSR0IArs4c6QAAAIFJREFUSEvNVUEOwCAIg/8/2mUHlqVLpTXLnEcpthXEDLJGxLiHMiIZ9txX8fQQ9YASoeIfhJiIrtCpi99H2Cmd1U+J1c1cDn9HWApZc3SCbYefEyp1mmFsh9sI3XdYQpcdvkbIRhQqdLsUBcqTZrVLW8LOqdo87HeRfwuVCEuAeQfyzzwR9//rHgAAAABJRU5ErkJgggAA">
-      </h1>
-    </center>
+  <div class="container">
+    <div class="logo">
+      <center>
+        <h1 class="logotext">
+          <img height="32" width="56" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzx/vAAAAAXNSR0IArs4c6QAAAIFJREFUSEvNVUEOwCAIg/8/2mUHlqVLpTXLnEcpthXEDLJGxLiHMiIZ9txX8fQQ9YASoeIfhJiIrtCpi99H2Cmd1U+J1c1cDn9HWApZc3SCbYefEyp1mmFsh9sI3XdYQpcdvkbIRhQqdLsUBcqTZrVLW8LOqdo87HeRfwuVCEuAeQfyzzwR9//rHgAAAABJRU5ErkJgggAA">
+          GameZ
+          <img height="32" width="56" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzx/vAAAAAXNSR0IArs4c6QAAAIFJREFUSEvNVUEOwCAIg/8/2mUHlqVLpTXLnEcpthXEDLJGxLiHMiIZ9txX8fQQ9YASoeIfhJiIrtCpi99H2Cmd1U+J1c1cDn9HWApZc3SCbYefEyp1mmFsh9sI3XdYQpcdvkbIRhQqdLsUBcqTZrVLW8LOqdo87HeRfwuVCEuAeQfyzzwR9//rHgAAAABJRU5ErkJgggAA">
+        </h1>
+      </center>
+    </div>
   </div>
-</div>
 
-<h1>GameZ Docs</h1>
-<hr>
-<h2>Loading GameZ</h2>
-<hr>
-<p>To load GameZ, use the <code>script</code> tag in your HTML:</p>
+  <h1>GameZ Docs</h1>
+  <hr>
+  <h2>Loading GameZ</h2>
+  <hr>
+  <p>To load GameZ, use the <code>script</code> tag in your HTML:</p>
 
-<code>&lt;script src="https://pincescpu987.github.io/gamez/src/main.min.js"&gt;&lt;/script&gt;</code>
-<p>
-  The source code can be found at <a href="https://pincescpu987.github.io/gamez/src/gamez.js">https://pincescpu987.github.io/gamez/src/gamez.js</a><br/>
-  and the minified version at <a href="https://pincescpu987.github.io/gamez/src/gamez.min.js">https://pincescpu987.github.io/gamez/src/gamez.min.js</a>.
-</p>
-<hr>
-<h2>Setting Up a New Game</h2>
-<hr>
-<p>GameZ is object-oriented. To start, create new <code>Game</code> and <code>Screen</code> objects, and <code>Setup</code> and <code>Update</code> functions, like this:</p>
-<p>
-  <code>let game = new Game(60);
-let screen = new Screen(640, 360);
-async function Setup(game, screen){
-  // This is executed once before the Update function.
-  // Your starting setup code goes here...
-}
+  <code>&lt;script src="https://pincescpu987.github.io/gamez/src/main.min.js"&gt;&lt;/script&gt;</code>
+  <p>
+    The source code can be found at <a href="https://pincescpu987.github.io/gamez/src/gamez.js">https://pincescpu987.github.io/gamez/src/gamez.js</a><br/>
+    and the minified version at <a href="https://pincescpu987.github.io/gamez/src/gamez.min.js">https://pincescpu987.github.io/gamez/src/gamez.min.js</a>.
+  </p>
+  <hr>
+  <h2>Setting Up a New Game</h2>
+  <hr>
+  <p>GameZ is object-oriented. To start, create new <code>Game</code> and <code>Screen</code> objects, and <code>Setup</code> and <code>Update</code> functions, like this:</p>
+  <p>
+    <code>let game = new Game(60);
+  let screen = new Screen(640, 360);
+  async function Setup(game, screen){
+    // This is executed once before the Update function.
+    // Your starting setup code goes here...
+  }
 
-async function Update(game, screen){
-  // This is executed once per frame.
-  // Your repeating update code goes here...
-}
-game.startGame(screen);</code>
-</p>
-<p>Let's break this code down line by line.</p>
+  async function Update(game, screen){
+    // This is executed once per frame.
+    // Your repeating update code goes here...
+  }
+  game.startGame(screen);</code>
+  </p>
+  <p>Let's break this code down line by line.</p>
 
-<p>
-  <code>let game = new Game(60);</code>
-  <br/>
-  This line creates a new <code>Game</code> instance, required to start the game and also set the debug feature. The one parameter required is the FPS of the game.
-</p>
+  <p>
+    <code>let game = new Game(60);</code>
+    <br/>
+    This line creates a new <code>Game</code> instance, required to start the game and also set the debug feature. The one parameter required is the FPS of the game.
+  </p>
 
-<p>
-  <code>let screen = new Screen(640, 480);</code>
-  <br/>
-  This line creates a new <code>Screen</code> instance, required to create and access sprites in the game. The two parameters are for the width and height of the canvas created with the screen.
-</p>
+  <p>
+    <code>let screen = new Screen(640, 480);</code>
+    <br/>
+    This line creates a new <code>Screen</code> instance, required to create and access sprites in the game. The two parameters are for the width and height of the canvas created with the screen.
+  </p>
 
-<p>
-  <code>async function Setup(game, screen){</code>
-  <br/>
-  This line creates an <code>async</code> function. <code>async</code> is required only if you need to use one of several functions returning <code>Promise</code>s with <code>await</code>. This funcion uses <code>Game</code> and <code>Screen</code> references to work with sprites.
-</p>
+  <p>
+    <code>async function Setup(game, screen){</code>
+    <br/>
+    This line creates an <code>async</code> function. <code>async</code> is required only if you need to use one of several functions returning <code>Promise</code>s with <code>await</code>. This funcion uses <code>Game</code> and <code>Screen</code> references to work with sprites.
+  </p>
 
-<p>
-  <code>async function Update(game, screen){</code>
-  <br/>
-  The update function is also async. Async is only required in the <code>Setup</code> function for loading files, but can be used to pause the frame. This function also uses <code>Game</code> and <code>Screen</code> references to work with sprites.
-</p>
+  <p>
+    <code>async function Update(game, screen){</code>
+    <br/>
+    The update function is also async. Async is only required in the <code>Setup</code> function for loading files, but can be used to pause the frame. This function also uses <code>Game</code> and <code>Screen</code> references to work with sprites.
+  </p>
 
-<p>
-Now, because you are using async functions, it may help to add something like this to your code, to accept and report errors:
-</p>
+  <p>
+  Now, because you are using async functions, it may help to add something like this to your code, to accept and report errors:
+  </p>
 
-<p>
-  <code>window.onunhandledrejection = function(errorEvent) {
+  <p>
+    <code>window.onunhandledrejection = function(errorEvent) {
   document.body.removeChild(document.querySelector('canvas')); // Remove the canvas to stop rendering.
   document.body.style.overflow = 'visible';
   if(_DEBUG){
@@ -94,32 +95,65 @@ Now, because you are using async functions, it may help to add something like th
     document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>Something went wrong.&lt;/p>&lt;/div>`
   }
 }</code>
-</p>
+  </p>
 
-<p>
-  This code tells the user something is wrong if debug is off, or tells the developer what is wrong if debug is on.<br/>
-  Also, the code removes the canvas to prevent rendering of a broken game.<br/>
-  The framework is based on the HTML <code>canvas</code> element, so removing the canvas to stop rendering of the game is included in this snippet.<br/>
-  However, you can write your error handling code however you want.
-</p>
+  <p>
+    This code tells the user something is wrong if debug is off, or tells the developer what is wrong if debug is on.<br/>
+    Also, the code removes the canvas to prevent rendering of a broken game.<br/>
+    The framework is based on the HTML <code>canvas</code> element, so removing the canvas to stop rendering of the game is included in this snippet.<br/>
+    However, you can write your error handling code however you want.
+  </p>
 
-<h2>Making a Sprite</h2>
+  <h2>Making a Sprite</h2>
 
-<p>
-  To have motion, graphics, or even images, every game needs a sprite. You can't really have a game without sprites. To create a sprite, use the <code>createSprite()</code> method of <code>Screen</code> instance, with &lt;name> being any string, like this:
-  <br>
-  <code>screen.createSprite(&lt;name>);</code>
-</p>
+  <p>
+    To have motion, graphics, or even images, every game needs a sprite. You can't really have a game without sprites. To create a sprite, use the <code>createSprite()</code> method of <code>Screen</code> instance, with &lt;name> being any string, like this:
+    <br>
+    <code>screen.createSprite(&lt;name>);</code>
+  </p>
 
-<p>
-  To access the sprite, just use <code>getSprite()</code>, like this:
-  <code>let mainSprite = screen.getSprite(&lt;name>);</code>
-</p>
-<p>
-  <b>Note</b>: You <i>can</i> repeatedly use <code>screen.getSprite()</code> without using a variable, but assigning it to a variable is <i>recommended</i>.
-  <b>Also note</b>: If GameZ cannot find your sprite, it will throw an error.
-</p>
-<h2>Making the Sprite Do Things</h2>
+  <p>
+    To access the sprite, just use <code>getSprite()</code>, like this:
+    <code>let mainSprite = screen.getSprite(&lt;name>);</code>
+  </p>
+  <p>
+    <b>Note</b>: You <i>can</i> repeatedly use <code>screen.getSprite()</code> without using a variable, but assigning it to a variable is <i>recommended</i>.
+    <b>Also note</b>: If GameZ cannot find your sprite, it will throw an error.
+  </p>
+  <h2>Making the Sprite Do Things</h2>
+  <details>
+    <summary>The Looks Methods</summary>
+    <details>
+      <summary class="indent1"><code>addCostume(&lt;name>, &lt;url>)</code></summary>
+      <div class="indent2">
+        <hr>
+        <h3>Parameters</h3>
+        <hr>
+        <code>&lt;name></code>: The name of the costume.<br>
+        <code>&lt;url></code>: The URL of the costume image. Must be PNG. If URL
+          does not work (ie: the server does not support hotlinking), then use a 
+          Data URI instead.
+        <hr>
+        <h3>Return value</h3>
+        <hr>
+        This method does not return anything.
+        <hr>
+        <h3>Usage example</h3>
+        <hr>
+        <code>let main = screen.getSprite('main'); // You can name your sprite anything you want.
+// This file is the first frame of
+// a pixelated loading animation.
+main.Looks.addCostume('https://pincescpu987.github.io/files/00.png');</code>
+<hr>
+      </div>
+    </details>
+    <details>
+      <summary class="indent1"><code>setCostume(&lt;name|index>)</code></summary>
+      <div class="indent2">
+      
+      </div>
+    </details>
+  </details>
 </body>
 <style>
   @font-face {
@@ -181,6 +215,16 @@ Now, because you are using async functions, it may help to add something like th
     color: #001122;
     background-color: #4488cc;
   }
+  summary {
+    cursor: pointer;
+  }
+  
+  .indent1 {
+    margin-left: 25px;
+  }
+  .indent2 {
+    margin-left: 50px;
+  }
 </style>
 <script>
   var elems = document.querySelectorAll('code');
@@ -191,4 +235,15 @@ Now, because you are using async functions, it may help to add something like th
       element.style.display = 'inline-block';
     }
   });
+  //var elements = document.querySelectorAll('details');
+  /*elements.forEach(element => {
+    element.addEventListener('mousedown', function(event) {
+      if (event.detail > 1) {
+        event.preventDefault();
+        // of course, you still do not know what you prevent here...
+        // You could also check event.ctrlKey/event.shiftKey/event.altKey
+        // to not prevent something useful.
+      }
+    }, false);
+  });*/
 </script>
