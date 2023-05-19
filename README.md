@@ -6,8 +6,8 @@ To load GameZ, use the script tag in your HTML:
 ```
 <script src="https://pincescpu987.github.io/gamez/src/main.min.js"></script>
 ```
-The source code can be found at [https://pincescpu987.github.io/gamez/src/main.js](https://pincescpu987.github.io/gamez/src/main.js)  
-and the minified version at [https://pincescpu987.github.io/gamez/src/main.min.js](https://pincescpu987.github.io/gamez/src/main.min.js).
+The source code can be found at [https://pincescpu987.github.io/gamez/src/gamez.js](https://pincescpu987.github.io/gamez/src/gamez.js)  
+and the minified version at [https://pincescpu987.github.io/gamez/src/gamez.min.js](https://pincescpu987.github.io/gamez/src/gamez.min.js).
 
 ***
 
