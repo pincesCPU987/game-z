@@ -444,7 +444,7 @@ class Rect{
     this.parent.clickFunc = func;
     this.parent.screen.canvas.addEventListener('click', function(e){
       if(e.target.parent.Sensing.touching('mouse') && e.target.parent.screen.mouseDown){
-        e.target.clickFunc();
+        e.target.parent.clickFunc();
       }
     });
   }
