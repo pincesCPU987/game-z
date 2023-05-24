@@ -80,7 +80,7 @@ class Screen {
 	constructor(w,h){
     this.rect = new ScreenRect(w, h);
     this.canvas = document.createElement('canvas');
-    this.canvas.parent = this.parent;
+    this.canvas.parent = this;
     this.mouseDown = false;
     this.bgColor = '#000000';
     this.canvas.onmousemove = function(e){
@@ -439,14 +439,6 @@ class Rect{
     this.height = 0;
     this.direction = 90;
     this.parent = p;
-  }
-  setOnClick(func){
-    this.parent.clickFunc = func;
-    this.parent.screen.canvas.addEventListener('click', function(e){
-      if(e.target.parent.Sensing.touching('mouse') && e.target.parent.screen.mouseDown){
-        e.target.parent.clickFunc();
-      }
-    });
   }
 }
 
