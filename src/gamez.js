@@ -76,14 +76,20 @@ class Game {
     }
   }
 }
-
 class Screen {
 	constructor(w,h){
     this.rect = new ScreenRect(w, h);
     this.canvas = document.createElement('canvas');
+    this.mouseDown = false;
     this.bgColor = '#000000';
     this.canvas.onmousemove = function(e){
     	updateMouse(e);
+    }
+    this.canvas.onmousedown = function(e){
+      this.mouseDown = true;
+    }
+    this.canvas.onmouseup = function(e){
+      this.mouseDown = false;
     }
     this.canvas.width = this.rect.width;
     this.canvas.height = this.rect.height;
@@ -428,8 +434,17 @@ class Rect{
 	constructor(p){
   	this.x = 0;
     this.y = 0;
+    this.width = 0;
+    this.height = 0;
     this.direction = 90;
     this.parent = p;
+  }
+  setOnClick(func){
+    this.parent.screen.canvas.addEventListener('click', function(){
+      if(this.parent.Sensing.touching('mouse') && this.parent.screen.mouseDown){
+        func();
+      }
+    });
   }
 }
 
