@@ -447,7 +447,7 @@ class ScreenRect extends Rect {
   }
 }
 
-class TextObject {
+class TextImage {
   constructor(t){
     this.text = t;
   }
