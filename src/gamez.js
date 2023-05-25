@@ -281,11 +281,6 @@ Width and height are (${this.parent.rect.width}, ${this.parent.rect.height}).`)
       }
     }
   }
-  say(s){
-  	if(_DEBUG){
-    	console.log(`Sprite '${this.parent.name}' said '${s}'.`);
-    }
-  }
   sayFor(s,t){
   	if(_DEBUG){
     	console.log(`Sprite '${this.parent.name}' saying '${s}' for ${t} milliseconds.`);
@@ -449,6 +444,54 @@ class ScreenRect extends Rect {
     this.direction = null;
     this.width = w;
     this.height = h;
+  }
+}
+
+class TextObject {
+  constructor(t){
+    this.text = t;
+  }
+  setSize(w, h){
+    this.width = w;
+    this.height = h;
+    this.color = '#000000';
+    this.backgroundColor = '#00000000';
+    this.borderWidth = 0;
+    this.borderColor = '#00000000';
+    this.font = '14px Arial';
+  }
+  setColor(color){
+    this.color = c;
+  }
+  setBackgroundColor(bgcolor){
+    this.backgroundColor = bgcolor;
+  }
+  setBorder(width, color){
+    this.borderWidth = width;
+    this.borderColor = color;
+  }
+  setText(t){
+    this.text = t;
+  }
+  setFont(f){
+    this.font = f;
+  }
+  getImage(){
+    var cnv = document.createElement('canvas');
+    var ctx = cnv.getContext('2d');
+    
+    ctx.fillStyle = this.backgroundColor;
+    ctx.fillRect(0, 0, this.width, this.height, this.backgroundColor);
+    
+    ctx.fillStyle = this.color;
+    ctx.textAlign = 'center';
+    ctx.font = this.font;
+    ctx.fillText(this.text, this.width / 2, this.height / 2);
+    
+    ctx.strokeStyle = this.borderColor;
+    ctx.strokeRect(0 + (this.borderWidth / 2), 0 + (this.borderWidth / 2), this.width - (this.borderWidth / 2), this.height - (this.borderWidth / 2));
+    
+    return canvas.toDataURL();
   }
 }
 
