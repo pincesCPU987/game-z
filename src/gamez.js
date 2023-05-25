@@ -87,10 +87,10 @@ class Screen {
     	updateMouse(e);
     }
     this.canvas.addEventListener('pointerdown', function(e){
-      this.mouseDown = true;
+      e.target.parent.mouseDown = true;
     });
     this.canvas.addEventListener('pointerup', function(e){
-      this.mouseDown = false;
+      e.target.parent.mouseDown = false;
     });
     this.canvas.width = this.rect.width;
     this.canvas.height = this.rect.height;
