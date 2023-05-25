@@ -86,12 +86,12 @@ class Screen {
     this.canvas.onmousemove = function(e){
     	updateMouse(e);
     }
-    this.canvas.onmousedown = function(e){
+    this.canvas.addEventListener('mousedown', function(e){
       this.mouseDown = true;
-    }
-    this.canvas.onmouseup = function(e){
+    });
+    this.canvas.addEventListener('mouseup', function(e){
       this.mouseDown = false;
-    }
+    });
     this.canvas.width = this.rect.width;
     this.canvas.height = this.rect.height;
     document.body.appendChild(this.canvas);
