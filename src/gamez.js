@@ -450,15 +450,17 @@ class ScreenRect extends Rect {
 class TextImage {
   constructor(t){
     this.text = t;
-  }
-  setSize(w, h){
-    this.width = w;
-    this.height = h;
+	  this.width = 1;
+    this.height = 1;
     this.color = '#000000';
     this.backgroundColor = '#00000000';
     this.borderWidth = 0;
     this.borderColor = '#00000000';
     this.font = '14px Arial';
+  }
+  setSize(w, h){
+    this.width = w;
+    this.height = h;
   }
   setColor(color){
     this.color = c;
@@ -478,6 +480,8 @@ class TextImage {
   }
   getImage(){
     var cnv = document.createElement('canvas');
+    cnv.width = this.width;
+    cnv.height = this.height;
     var ctx = cnv.getContext('2d');
     
     ctx.fillStyle = this.backgroundColor;
