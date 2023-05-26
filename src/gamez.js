@@ -464,7 +464,7 @@ class TextImage {
     this.height = h;
   }
   setColor(color){
-    this.color = c;
+    this.color = color;
   }
   setBackgroundColor(bgcolor){
     this.backgroundColor = bgcolor;
