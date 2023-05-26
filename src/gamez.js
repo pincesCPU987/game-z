@@ -496,7 +496,7 @@ class TextImage {
     ctx.strokeStyle = this.borderColor;
     ctx.strokeRect(0 + (this.borderWidth / 2), 0 + (this.borderWidth / 2), this.width - (this.borderWidth / 2), this.height - (this.borderWidth / 2));
     
-    ctx.fillColor = this.screen.bgColor;
+    ctx.fillStyle = this.screen.bgColor;
         
     return cnv.toDataURL();
   }
