@@ -1,9 +1,11 @@
+<head>
+  <meta charset="UTF-16">
+  <title>GameZ Docs</title>
 
-<title>GameZ Docs</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
 
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzx/vAAAAAXNSR0IArs4c6QAAAIFJREFUSEvNVUEOwCAIg/8/2mUHlqVLpTXLnEcpthXEDLJGxLiHMiIZ9txX8fQQ9YASoeIfhJiIrtCpi99H2Cmd1U+J1c1cDn9HWApZc3SCbYefEyp1mmFsh9sI3XdYQpcdvkbIRhQqdLsUBcqTZrVLW8LOqdo87HeRfwuVCEuAeQfyzzwR9//rHgAAAABJRU5ErkJgggAA">
 <body>
@@ -83,7 +85,7 @@
   document.body.removeChild(document.querySelector('canvas')); // Remove the canvas to stop rendering.
   document.body.style.overflow = 'visible';
   if(_DEBUG){
-    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>
+    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>&#129300;&lt;/h1>&lt;h1>Hmmm...&lt;/h1>
       &lt;p>There's an error in your code.&lt;/p>&lt;p>Here it is:&lt;/p>
       &lt;p>${
         errorEvent.reason.stack
@@ -92,7 +94,7 @@
       }
       &lt;/p>&lt;/div>`
   } else {
-    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>🤔&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>Something went wrong.&lt;/p>&lt;/div>`
+    document.body.innerHTML = `&lt;div style="margin: 10px;">&lt;h1>&#129300;&lt;/h1>&lt;h1>Hmmm...&lt;/h1>&lt;p>Something went wrong.&lt;/p>&lt;/div>`
   }
 }</code>
   </p>
@@ -121,17 +123,28 @@
     <b>Also note</b>: If GameZ cannot find your sprite, it will throw an error.
   </p>
   <h2>Making the Sprite Do Things</h2>
+  <hr>
+  To use different methods and functions, use this general syntax:
+  <br>
+  <code>&lt;sprite>.&lt;category>.&lt;method>(&lt;parameters>);</code>
   <details>
-    <summary>The Looks Methods</summary>
+    <summary>
+      The Looks Methods
+    </summary>
     <details>
       <summary class="indent1"><code>addCostume(&lt;name>, &lt;url>)</code></summary>
       <div class="indent2">
+        <hr>
+        <h3>What it does</h3>
+        <p>
+          This method adds a costume to a sprite.
+        </p>
         <hr>
         <h3>Parameters</h3>
         <hr>
         <code>&lt;name></code>: The name of the costume.<br>
         <code>&lt;url></code>: The URL of the costume image. Must be PNG. If URL
-          does not work (ie: the server does not support hotlinking), then use a 
+          does not work (ie: the website does not support hotlinking), then use a 
           Data URI instead.
         <hr>
         <h3>Return value</h3>
@@ -140,17 +153,110 @@
         <hr>
         <h3>Usage example</h3>
         <hr>
-        <code>let main = screen.getSprite('main'); // You can name your sprite anything you want.
-// This file is the first frame of
-// a pixelated loading animation.
-main.Looks.addCostume('https://pincescpu987.github.io/files/00.png');</code>
+        <code>// You can name your sprite anything you want.
+// This code assumes you have already created a sprite named 'main'.
+let main = screen.getSprite('main');
+// Next, add a URL to an image.
+main.Looks.addCostume('00', 'https://pincescpu987.github.io/files/00.png');</code>
 <hr>
       </div>
     </details>
     <details>
       <summary class="indent1"><code>setCostume(&lt;name|index>)</code></summary>
       <div class="indent2">
-      
+        <hr>
+        <h3>What it does</h3>
+        <hr>
+        <p>
+          This method selects an existing costume from the sprite's list of costumes. 
+        </p>
+        <hr>
+        <h3>Parameters</h3>
+        <hr>
+        <code>&lt;name|index></code>: The name or index (in the order added) of the costume.<br>
+        <hr>
+        <h3>Return value</h3>
+        <hr>
+        This method does not return anything.
+        <hr>
+        <h3>Usage examples</h3>
+        <hr>
+        <code>// This code also assumes that the sprite is named 'main'.
+var main = screen.getSprite('main')
+main.Looks.setCostume('00');</code>
+        <hr>
+        <code>// You can also use an index. This code assumes '00' to be the first costume (index 0).
+var main = screen.getSprite('main');
+main.Looks.setCostume(0);</code>
+        <hr>
+      </div>
+    </details>
+    <details>
+      <summary class="indent1"><code>show()</code></summary>
+      <div class="indent2">
+        <hr>
+        <h3>What it does</h3>
+        <hr>
+        <p>
+          This method shows the sprite on the screen for one frame, displaying the selected costume.
+          Useful for if you want to hide the sprite (just don't call <code>show()</code>, it won't show up).
+          <br>
+          <b>Note</b>: If you don't see your sprite, you may have not called <code>show()</code>.
+        </p>
+        <hr>
+        <h3>Parameters</h3>
+        <hr>
+        This method does not take any parameters.
+        <hr>
+        <h3>Return value</h3>
+        <hr>
+        This method does not return anything.
+        <hr>
+        <h3>Usage example</h3>
+        <hr>
+        <code>// Again, a sprite named 'main' is assumed.
+var main = screen.getSprite('main'); // Get the sprite.
+
+main.Looks.addCostume('00', 'https://pincescpu987.github.io/files/00.png'); // Add a costume
+main.Looks.setCostume('00');                                                // and set the costume.
+
+main.Looks.show(); // Finally, show on the screen.</code>
+        <hr>
+      </div>
+    </details>
+  </details>
+  <details>
+    <summary>The Motion Methods</summary>
+    <details>
+      <summary class="indent1"><code>forward(&lt;pixels>)</code></summary>
+      <div class="indent2">
+        <hr>
+        <h3>What it does</h3>
+        <hr>
+        <p>
+          This method moves the sprite forward a certain amount of pixels in the current direction.
+          The method does calculations to move the same visual distance in any direction.
+        </p>
+        <hr>
+        <h3>Parameters</h3>
+        <hr>
+        <code>&lt;pixels></code>: The amount in pixels the sprite should move.
+        <hr>
+        <h3>Return value</h3>
+        This method does not return anything.
+        <hr>
+        <h3>Usage example</h3>
+        <hr>
+        <code>// This code assumes that you have already created a 'main' sprite.
+var main = screen.getSprite('main');
+main.Motion.forward(100); // Move forward to the right 100 pixels.</code>
+        <hr>
+      </div>
+    </details>
+    <details>
+      <summary class="indent1"><code>left(&lt;degrees>)</code> and <code>right(&lt;degrees>)</code></summary>
+      <div class="indent2">
+        <!--left off here-->
       </div>
     </details>
   </details>
