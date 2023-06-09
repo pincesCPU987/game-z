@@ -142,7 +142,8 @@
         <hr>
         <h3>Parameters</h3>
         <hr>
-        <code>&lt;name></code>: The name of the costume.<br>
+        <code>&lt;name></code>: The name of the costume.
+        <br>
         <code>&lt;url></code>: The URL of the costume image. Must be PNG. If URL
           does not work (ie: the website does not support hotlinking), then use a 
           Data URI instead.
@@ -228,6 +229,41 @@ main.Looks.show(); // Finally, show on the screen.</code>
   <details>
     <summary>The Motion Methods</summary>
     <details>
+      <summary class="indent1"><code>goToXY(&lt;xPosition>, &lt;yPotsition>)</code></summary>
+      <div class="indent2">
+        <hr>
+        <h3>What it does</h3>
+        <hr>
+        <p>
+          This method moves the sprite to the specified position.
+          <br>
+          <b>Note</b>: The sprite is anchored at the center. If you want a different behavior, use <code>&lt;theSprite>.rect.width</code> and <code>&lt;theSprite>.rect.height</code>.
+        </p>
+        <hr>
+        <h3>Parameters</h3>
+        <hr>
+        <code>&lt;xPosition></code>: The X position of the destination of the sprite.
+        <br>
+        <code>&lt;yPosition></code>: The Y position of the destination of the sprite.
+        <hr>
+        <h3>Return value</h3>
+        <hr>
+        This method does not return anything.
+        <hr>
+        <h3>Usage example</h3>
+        <hr>
+        <code>var main = screen.getSprite('main');
+main.Motion.goToXY(70.7, 70.7); // Send the sprite to position 70.7, 70.7.</code>
+        <hr>
+      </div>
+    </details>
+    <details>
+      <summary class="indent1"><code>point(&lt;degrees>)</code></summary>
+      <div class="indent2">
+        <!--Left off here-->
+      </div>
+    </details>
+    <details>
       <summary class="indent1"><code>forward(&lt;pixels>)</code></summary>
       <div class="indent2">
         <hr>
@@ -243,6 +279,7 @@ main.Looks.show(); // Finally, show on the screen.</code>
         <code>&lt;pixels></code>: The amount in pixels the sprite should move.
         <hr>
         <h3>Return value</h3>
+        <hr>
         This method does not return anything.
         <hr>
         <h3>Usage example</h3>
@@ -256,7 +293,27 @@ main.Motion.forward(100); // Move forward to the right 100 pixels.</code>
     <details>
       <summary class="indent1"><code>left(&lt;degrees>)</code> and <code>right(&lt;degrees>)</code></summary>
       <div class="indent2">
-        <!--left off here-->
+        <hr>
+        <h3>What they do</h3>
+        <hr>
+        <p>
+          These methods turn the sprite left and right the specified amount in degrees.
+        </p>
+        <hr>
+        <h3>Parameters</h3>
+        <hr>
+        <code>&lt;degrees></code>: The amount in degrees to turn. If this value is negative, it will turn in the opposite direction.
+        <hr>
+        <h3>Return value</h3>
+        <hr>
+        This method does not return anything.
+        <hr>
+        <h3>Usage examples</h3>
+        <hr>
+        <code>var main = screen.getSprite('main');
+main.Looks.setCostume('00'); // Assumes a costume already named '00'.
+main.Motion.right(45); // Turn right 45 degrees.
+main.Motion.forward(100); // Move 100 pixels down-right.</code>
       </div>
     </details>
   </details>
