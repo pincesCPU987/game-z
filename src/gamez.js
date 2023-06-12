@@ -534,16 +534,6 @@ class Pen {
   }
   penDown(){
     this.penIsOn = true;
-    
-    var ctx = this.parent.screen.canvas.getContext('2d');
-    ctx.lineWidth = this.penSize;
-    var firstPos = [this.parent.rect.x, this.parent.rect.y];
-
-    var secondPos = [this.parent.rect.x, this.paretn.rect.y];
-    ctx.beginPath();
-    ctx.moveTo(firstPos[0], firstPos[1]);
-    ctx.lineTo(secondPos[0], secondPos[1]);
-    ctx.stroke();
   }
   penUp(){
     this.penIsOn = false;
