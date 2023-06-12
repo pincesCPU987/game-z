@@ -80,6 +80,7 @@ class Screen {
   constructor(w,h){
     this.rect = new ScreenRect(w, h);
     this.canvas = document.createElement('canvas');
+    this.ctx = this.canvas.getContext('2d');
     this.canvas.parent = this;
     this.mouseDown = false;
     this.bgColor = '#000000';
@@ -123,7 +124,7 @@ class Motion {
   }
   forward(p){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
@@ -160,7 +161,7 @@ class Motion {
   }
   goToXY(x, y){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
@@ -182,7 +183,7 @@ class Motion {
   }
   goTo(t){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
@@ -251,7 +252,7 @@ class Motion {
   }
   changeX(p){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
@@ -272,7 +273,7 @@ class Motion {
   }
   setX(p){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
@@ -293,7 +294,7 @@ class Motion {
   }
   changeY(p){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
@@ -313,7 +314,7 @@ class Motion {
   }
   setY(p){
     if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.canvas.getContext('2d');
+      var ctx = this.parent.screen.ctx;
       ctx.lineWidth = this.parent.Pen.penSize;
       var firstPos = [this.parent.rect.x, this.parent.rect.y];
     }
