@@ -122,8 +122,20 @@ class Motion {
     this.parent = p;
   }
   forward(p){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
     this.parent.rect.x += p * (Math.sin((this.parent.rect.direction / 90) * (Math.PI / 2)));
     this.parent.rect.y += p * (Math.cos((this.parent.rect.direction / 90) * (Math.PI / 2)));
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
+    }
     if(_DEBUG){
       console.log(`Moved sprite '${this.parent.name}' forward ${p} pixels. New position is (${this.parent.rect.x}, ${this.parent.rect.y}).`);
     }
@@ -147,13 +159,34 @@ class Motion {
     }
   }
   goToXY(x, y){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
+    
     this.parent.rect.x = x;
     this.parent.rect.y = y;
+    
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
+    }
+    
     if(_DEBUG){
       console.log(`Sent sprite '${this.parent.name}' to position (${x}, ${y}).`);
     }
   }
   goTo(t){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
+    
     if(t == 'random'){
       var x = Math.floor(Math.random() * this.parent.screen.rect.width);
       var y = Math.floor(Math.random() * this.parent.screen.height);
@@ -178,6 +211,14 @@ class Motion {
       if(_DEBUG){
         console.log(`Sent sprite '${this.parent.name}' to sprite '${t.name}' at position (${x}, ${y}).`);
       }
+    }
+    
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
     }
   }
   point(d){
@@ -209,25 +250,84 @@ class Motion {
     this.parent.rect.direction = direction
   }
   changeX(p){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
+    
     this.parent.rect.x += p;
+    
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
+    }
+    
     if(_DEBUG){
       console.log(`Changed X position of sprite '${this.parent.name}' by ${p}. New Y position is ${this.parent.rect.x}`)
     }
   }
   setX(p){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
+    
     this.parent.rect.x = p;
+    
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
+    }
+    
     if(_DEBUG){
       console.log(`Set X position of sprite '${this.parent.name}' to ${p}.`);
     }
   }
   changeY(p){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
+    
     this.parent.rect.y += p;
     if(_DEBUG){
       console.log(`Changed Y position of sprite '${this.parent.name}' by ${p}. New Y position is ${this.parent.rect.y}`)
     }
+    
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
+    }
   }
   setY(p){
+    if(this.parent.Pen.penIsOn){
+      var ctx = this.parent.screen.canvas.getContext('2d');
+      ctx.lineWidth = this.parent.Pen.penSize;
+      var firstPos = [this.parent.rect.x, this.parent.rect.y];
+    }
+    
     this.parent.rect.y = p;
+    
+    if(this.parent.Pen.penIsOn){
+      var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+      ctx.beginPath();
+      ctx.moveTo(firstPos[0], firstPos[1]);
+      ctx.lineTo(secondPos[0], secondPos[1]);
+      ctx.stroke();
+    }
+    
     if(_DEBUG){
       console.log(`Set Y position of sprite '${this.parent.name}' to ${p}.`);
     }
@@ -426,6 +526,32 @@ class Sensing {
   }
 }
 
+class Pen {
+  constructor(p){
+    this.parent = p;
+    this.penIsOn = false;
+  }
+  penDown(){
+    this.penIsOn = true;
+    
+    var ctx = this.parent.screen.canvas.getContext('2d');
+    ctx.lineWidth = this.parent.Pen.penSize;
+    var firstPos = [this.parent.rect.x, this.parent.rect.y];
+
+    var secondPos = [this.parent.rect.x, this.paretn.rect.y];
+    ctx.beginPath();
+    ctx.moveTo(firstPos[0], firstPos[1]);
+    ctx.lineTo(secondPos[0], secondPos[1]);
+    ctx.stroke();
+  }
+  penUp(){
+    this.penIsOn = false;
+  }
+  setSize(p){
+    this.penSize = p;
+  }
+}
+
 class Rect{
   constructor(p){
     this.x = 0;
@@ -515,6 +641,7 @@ class Sprite{
     this.Sensing = new Sensing(this);
     this.Sound = new Sound(this);
     this.Control = new Control(this);
+    this.Pen = new Pen(this);
     if(_DEBUG){
       console.log(`Created sprite with name '${n}'`);
     }
