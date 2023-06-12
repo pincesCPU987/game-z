@@ -530,12 +530,13 @@ class Pen {
   constructor(p){
     this.parent = p;
     this.penIsOn = false;
+    this.penSize = 1;
   }
   penDown(){
     this.penIsOn = true;
     
     var ctx = this.parent.screen.canvas.getContext('2d');
-    ctx.lineWidth = this.parent.Pen.penSize;
+    ctx.lineWidth = this.penSize;
     var firstPos = [this.parent.rect.x, this.parent.rect.y];
 
     var secondPos = [this.parent.rect.x, this.paretn.rect.y];
