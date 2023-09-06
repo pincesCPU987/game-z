@@ -80,6 +80,7 @@ class Screen {
   constructor(w,h){
     this.rect = new ScreenRect(w, h);
     this.canvas = document.createElement('canvas');
+    document.body.appendChild(this.canvas);
     this.ctx = this.canvas.getContext('2d');
     this.canvas.parent = this;
     this.mouseDown = false;
@@ -95,7 +96,6 @@ class Screen {
     });
     this.canvas.width = this.rect.width;
     this.canvas.height = this.rect.height;
-    document.body.appendChild(this.canvas);
   }
   createSprite(n){
     try {
@@ -391,7 +391,15 @@ Width and height are (${this.parent.rect.width}, ${this.parent.rect.height}).`)
   show(){
     var cnv = this.parent.screen.canvas;
     var ctx = this.parent.screen.ctx;
-    ctx.drawImage(this.costumes[this.costume].object, this.parent.rect.x - (this.parent.Looks.costumes[this.parent.Looks.costume].object.width / 2), this.parent.rect.y - (this.parent.Looks.costumes[this.parent.Looks.costume].object.height / 2));
+    ctx.drawImage(
+      this.costumes[this.costume].object,
+      this.parent.rect.x - (
+        this.parent.Looks.costumes[this.parent.Looks.costume].object.width / 2
+      ),
+      this.parent.rect.y - (
+        this.parent.Looks.costumes[this.parent.Looks.costume].object.height / 2
+      )
+    );
   }
 }
 
