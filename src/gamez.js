@@ -394,10 +394,10 @@ Width and height are (${this.parent.rect.width}, ${this.parent.rect.height}).`)
     ctx.drawImage(
       this.costumes[this.costume].object,
       this.parent.rect.x - (
-        this.parent.Looks.costumes[this.parent.Looks.costume].object.width / 2
+        this.costumes[this.costume].object.width / 2
       ),
       this.parent.rect.y - (
-        this.parent.Looks.costumes[this.parent.Looks.costume].object.height / 2
+        this.costumes[this.parent.Looks.costume].object.height / 2
       )
     );
   }
