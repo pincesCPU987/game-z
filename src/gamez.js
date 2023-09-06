@@ -390,7 +390,7 @@ Width and height are (${this.parent.rect.width}, ${this.parent.rect.height}).`)
   }
   show(){
     var cnv = this.parent.screen.canvas;
-    var ctx = cnv.getContext('2d');
+    var ctx = this.parent.screen.ctx.getContext('2d');
     ctx.drawImage(this.costumes[this.costume].object, this.parent.rect.x - (this.parent.Looks.costumes[this.parent.Looks.costume].object.width / 2), this.parent.rect.y - (this.parent.Looks.costumes[this.parent.Looks.costume].object.height / 2));
   }
 }
