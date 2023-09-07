@@ -340,7 +340,7 @@ class Looks {
     this.parent = p;
     this.costumes = {};
     this.costumeNames = [];
-    this.costume = 0;
+    this.costume = '';
   }
   addCostume(n,u){
     var img = document.createElement('img');
@@ -397,7 +397,7 @@ Width and height are (${this.parent.rect.width}, ${this.parent.rect.height}).`)
         this.costumes[this.costume].object.width / 2
       ),
       this.parent.rect.y - (
-        this.costumes[this.parent.Looks.costume].object.height / 2
+        this.costumes[this.costume].object.height / 2
       )
     );
   }
@@ -522,7 +522,17 @@ class Sensing {
       return ((this.parent.rect.x + (this.parent.rect.width / 2)) >= this.parent.screen.rect.width);
     }
     if(o instanceof Sprite){
-      return (this.parent.rect.x - (this.parent.rect.width / 2) <= o.rect.x + (o.rect.width / 2) && this.parent.rect.x - (this.parent.rect.width / 2) > this.parent.rect.x - (this.parent.rect.width / 2)) && (this.parent.rect.y - (this.parent.rect.height / 2) <= o.rect.y + (o.rect.height / 2) && this.parent.rect.y - (this.parent.rect.height / 2) > this.parent.rect.y - (this.parent.rect.height / 2))
+      return (
+        this.parent.rect.x - (this.parent.rect.width / 2) <= 
+        o.rect.x + (o.rect.width / 2) && 
+        this.parent.rect.x + (this.parent.rect.width / 2) >= 
+        o.rect.x - (o.rect.width / 2)
+      ) && (
+        this.parent.rect.y - (this.parent.rect.height / 2) <= 
+        o.rect.y + (o.rect.height / 2) && 
+        this.parent.rect.y + (this.parent.rect.height / 2) > 
+        o.rect.y - (o.rect.height / 2)
+      )
     }
   }
   distanceTo(o){
