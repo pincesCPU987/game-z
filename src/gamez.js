@@ -571,6 +571,32 @@ class Rect{
     this.direction = 90;
     this.parent = p;
   }
+  getEdge(edge) {
+    var edgeSprite = new EdgeSprite("edge", this.parent.screen);
+    if (edge == "right") {
+      edgeSprite.rect.width = 1;
+      edgeSprite.rect.height = this.parent.rect.height;
+      edgeSprite.rect.x = this.parent.rect.x + (this.parent.rect.width / 2);
+      edgeSprite.rect.y = this.parent.rect.y;
+    } else if (edge == "left") {
+      edgeSprite.rect.width = 1;
+      edgeSprite.rect.height = this.parent.rect.height;
+      edgeSprite.rect.x = this.parent.rect.x - (this.parent.rect.width / 2);
+      edgeSprite.rect.y = this.parent.rect.y;
+    } else if (edge == "top") {
+      edgeSprite.rect.width = this.parent.rect.width;
+      edgeSprite.rect.height = 1;
+      edgeSprite.rect.x = this.parent.rect.x;
+      edgeSprite.rect.y = this.parent.rect.y - (this.parent.rect.height / 2);
+    } else if (edge == "top") {
+      edgeSprite.rect.width = this.parent.rect.width;
+      edgeSprite.rect.height = 1;
+      edgeSprite.rect.x = this.parent.rect.x;
+      edgeSprite.rect.y = this.parent.rect.y + (this.parent.rect.height / 2);
+    } else {
+      throw new Error(`${edge} is not a valid edge name. Choices are: right, left, top, bottom.`);
+    }
+  }
 }
 
 class ScreenRect extends Rect {
@@ -655,5 +681,11 @@ class Sprite{
     if(_DEBUG){
       console.log(`Created sprite with name '${n}'`);
     }
+  }
+}
+
+class EdgeSprite extends Sprite {
+  constructor(n, s) {
+    this.rect = new Rect(this);
   }
 }
