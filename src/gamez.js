@@ -129,11 +129,7 @@ class Motion {
     this.parent = p;
   }
   forward(p){
-    if(this.parent.Pen.penIsOn){
-      var ctx = this.parent.screen.ctx;
-      ctx.lineWidth = this.parent.Pen.penSize;
-      var firstPos = [this.parent.rect.x, this.parent.rect.y];
-    }
+    
     this.parent.rect.x += p * (Math.sin((this.parent.rect.direction / 90) * (Math.PI / 2)));
     this.parent.rect.y += p * (Math.cos((this.parent.rect.direction / 90) * (Math.PI / 2)));
     if(_DEBUG){
@@ -462,15 +458,29 @@ class Sensing {
     }
     if(o instanceof Sprite){
       return (
-        this.parent.rect.x - (this.parent.rect.width / 2) <= 
-        o.rect.x + (o.rect.width / 2) || 
-        this.parent.rect.x + (this.parent.rect.width / 2) >= 
-        o.rect.x - (o.rect.width / 2)
+        (
+          this.parent.rect.x - (this.parent.rect.width / 2) <= 
+          o.rect.x + (o.rect.width / 2) && 
+          this.parent.rect.x - (this.parent.rect.width / 2) >= 
+          o.rect.x - (o.rect.width / 2)
+        ) || (
+          this.parent.rect.x + (this.parent.rect.width / 2) >= 
+          o.rect.x - (o.rect.width / 2) && 
+          this.parent.rect.x + (this.parent.rect.width / 2) <= 
+          o.rect.x + (o.rect.width / 2)
+        )
       ) && (
-        this.parent.rect.y - (this.parent.rect.height / 2) <= 
-        o.rect.y + (o.rect.height / 2) || 
-        this.parent.rect.y + (this.parent.rect.height / 2) >= 
-        o.rect.y - (o.rect.height / 2)
+        (
+          this.parent.rect.y - (this.parent.rect.height / 2) <= 
+          o.rect.y + (o.rect.height / 2) && 
+          this.parent.rect.y - (this.parent.rect.height / 2) >= 
+          o.rect.Y - (o.rect.height / 2)
+        ) || (
+          this.parent.rect.y + (this.parent.rect.height / 2) >= 
+          o.rect.y - (o.rect.height / 2) && 
+          this.parent.rect.y + (this.parent.rect.height / 2) <= 
+          o.rect.y + (o.rect.height / 2)
+        )
       )
     }
   }
