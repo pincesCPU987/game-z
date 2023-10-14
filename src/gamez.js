@@ -99,6 +99,12 @@ class Screen {
   }
   createSprite(n){
     try {
+      if(_nu.includes(n)){
+        throw new SpriteNameError(`A sprite with the name '${n}' already exists. Names already used are as follows:\n${JSON.stringify(_nu)}`);
+      } else {
+        this.name = n;
+        _nu += n;
+      }
       _Sprites[n] = new Sprite(n,this);
     } catch (err){
       throw new SpriteCreationError(`Creation of sprite '${n}' went wrong.`);
@@ -666,12 +672,12 @@ class Sprite{
   constructor(n,s){
     this.rect = new Rect(this);
     this.screen = s;
-    if(_nu.includes(n)){
+    /*if(_nu.includes(n)){
       throw new SpriteNameError(`A sprite with the name '${n}' already exists. Names not available are as follows:\n${JSON.stringify(_nu)}`);
     } else {
       this.name = n;
       _nu += n;
-    }
+    }*/
     this.Motion = new Motion(this);
     this.Looks = new Looks(this);
     this.Sensing = new Sensing(this);
@@ -686,6 +692,20 @@ class Sprite{
 
 class EdgeSprite extends Sprite {
   constructor(n, s) {
+    var prevState = _DEBUG;
+    _DEBUG = false;
+    
+    super(n, s);
+    
+    _DEBUG = prevState;
+    
     this.rect = new Rect(this);
+    
+    delete this.Motion;
+    delete this.Looks;
+    delete this.Sensing;
+    delete this.Sound;
+    delete this.Control;
+    delete this.Pen;
   }
 }
