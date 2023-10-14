@@ -537,7 +537,7 @@ class Rect{
       edgeSprite.rect.height = 1;
       edgeSprite.rect.x = this.parent.rect.x;
       edgeSprite.rect.y = this.parent.rect.y - (this.parent.rect.height / 2);
-    } else if (edge == "top") {
+    } else if (edge == "bottom") {
       edgeSprite.rect.width = this.parent.rect.width;
       edgeSprite.rect.height = 1;
       edgeSprite.rect.x = this.parent.rect.x;
