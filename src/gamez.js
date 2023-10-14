@@ -514,21 +514,21 @@ class Rect{
     var edgeSprite = new EdgeSprite("edge", this.parent.screen);
     if (edge == "right") {
       edgeSprite.rect.width = 1;
-      edgeSprite.rect.height = this.parent.rect.height;
+      edgeSprite.rect.height = this.parent.rect.height - 2;
       edgeSprite.rect.x = this.parent.rect.x + (this.parent.rect.width / 2);
       edgeSprite.rect.y = this.parent.rect.y;
     } else if (edge == "left") {
       edgeSprite.rect.width = 1;
-      edgeSprite.rect.height = this.parent.rect.height;
+      edgeSprite.rect.height = this.parent.rect.height - 2;
       edgeSprite.rect.x = this.parent.rect.x - (this.parent.rect.width / 2);
       edgeSprite.rect.y = this.parent.rect.y;
     } else if (edge == "top") {
-      edgeSprite.rect.width = this.parent.rect.width;
+      edgeSprite.rect.width = this.parent.rect.width - 2;
       edgeSprite.rect.height = 1;
       edgeSprite.rect.x = this.parent.rect.x;
       edgeSprite.rect.y = this.parent.rect.y - (this.parent.rect.height / 2);
     } else if (edge == "bottom") {
-      edgeSprite.rect.width = this.parent.rect.width;
+      edgeSprite.rect.width = this.parent.rect.width - 2;
       edgeSprite.rect.height = 1;
       edgeSprite.rect.x = this.parent.rect.x;
       edgeSprite.rect.y = this.parent.rect.y + (this.parent.rect.height / 2);
