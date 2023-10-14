@@ -457,31 +457,21 @@ class Sensing {
       return ((this.parent.rect.x + (this.parent.rect.width / 2)) >= this.parent.screen.rect.width);
     }
     if(o instanceof Sprite){
-      return (
-        (
-          this.parent.rect.x - (this.parent.rect.width / 2) < 
-          o.rect.x + (o.rect.width / 2) && 
-          this.parent.rect.x - (this.parent.rect.width / 2) > 
-          o.rect.x - (o.rect.width / 2)
-        ) || (
-          this.parent.rect.x + (this.parent.rect.width / 2) > 
-          o.rect.x - (o.rect.width / 2) && 
-          this.parent.rect.x + (this.parent.rect.width / 2) < 
-          o.rect.x + (o.rect.width / 2)
-        )
-      ) && (
-        (
-          this.parent.rect.y - (this.parent.rect.height / 2) < 
-          o.rect.y + (o.rect.height / 2) && 
-          this.parent.rect.y - (this.parent.rect.height / 2) > 
-          o.rect.Y - (o.rect.height / 2)
-        ) || (
-          this.parent.rect.y + (this.parent.rect.height / 2) > 
-          o.rect.y - (o.rect.height / 2) && 
-          this.parent.rect.y + (this.parent.rect.height / 2) < 
-          o.rect.y + (o.rect.height / 2)
-        )
-      )
+      var withinX = false;
+      for (var i = this.parent.rect.x - (this.parent.rect.width / 2); i <= this.parent.rect.x + (this.parent.rect.width / 2); i++) {
+        if (i >= o.rect.x - (o.rect.width / 2) && i <= o.rect.x + (o.rect.width / 2)) {
+          withinX = true;
+        }
+      }
+
+      var withinY = false;
+      for (var i = this.parent.rect.y - (this.parent.rect.height / 2); i <= this.parent.rect.y + (this.parent.rect.height / 2); i++) {
+        if (i >= o.rect.y - (o.rect.height / 2) && i <= o.rect.y + (o.rect.height / 2)) {
+          withinY = true;
+        }
+      }
+
+      return withinX && withinY;
     }
   }
   distanceTo(o){
