@@ -328,12 +328,12 @@ Width and height are (${this.parent.rect.width}, ${this.parent.rect.height}).`)
     var ctx = this.parent.screen.ctx;
     ctx.drawImage(
       this.costumes[this.costume].object,
-      Math.round(
+      Math.floor(
         this.parent.rect.x - (
           this.costumes[this.costume].object.width / 2
         )
       ),
-      Math.round(
+      Math.floor(
         this.parent.rect.y - (
           this.costumes[this.costume].object.height / 2
         )
