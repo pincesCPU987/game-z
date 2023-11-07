@@ -647,3 +647,5 @@ class EdgeSprite extends Sprite {
     delete this.Pen;
   }
 }
+
+console.log('GameZ Beta');
